@@ -1,1 +1,61 @@
+Oct 30th  Text File
 
+# include <stdio.h>
+int main(int argc, char** argv){
+  FILE* inFile;
+  FILE* outFile;
+  inFile = Fopen(argv[1], "r");
+  outFile = Fopen(argv[2], "w");
+  char c
+  while (1){
+    c= fgetc(inFile);
+    if(c==EOF)
+      break;
+    fputc(c, outFile);
+  }
+  fclose(inFile);
+  fclose(outFile);
+}
+
+
+/*
+$mcp  inFile.txt  outFile.txt
+      argv[1]     argv[2]
+
+
+FILE* <-- fopen(char* fileName, chae* mode)
+          fclose(FILE *F)
+char <-- fgetc(FILE *F)
+*/
+
+
+void showUsage(char* ProgramName){
+  printf("USAGE mcp <infile><outfile>\n")
+}
+
+
+int main(int argc, char** argv){
+  FILE*in;
+  FILE*out;
+  char c;
+  if(argc != 3){
+    showUsage(argv[0]);
+    return(1);
+  }
+  if(!(in=fopen(argv[1]))){
+    printf("Unable to open input file\n");
+    return(1);
+  }
+  if(!(out=fopen(argv[2], "w"))){
+    printf(");
+    return(1);
+  }
+  while(1){
+    c = fgetc(in);
+    if(c == EOF)
+      break;
+    fputc(c,out);
+  }
+  fclose(in);
+  fclose(out);
+}
